@@ -1,0 +1,586 @@
+{
+  "swapAbi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "swapId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "senderNftAddress",
+          "type": "address[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "senderNFTId",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "senderPrice",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "startTime",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "endTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "InitiateSwap",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "swapId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "recipientNftAddress",
+          "type": "address[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "recipientNFTId",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "recipientPrice",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "SetRecipientDetails",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "swapId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "senderNFTId",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "recipientNFTId",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "SwapCancel",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "swapId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "senderNFTId",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "recipientNFTId",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "SwapCompleted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_swapId", "type": "uint256" }
+      ],
+      "name": "cancelSwapAndClaimNFTBack",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "_dataOracle", "type": "address" }
+      ],
+      "name": "changeDataOracle",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_feesAddress",
+          "type": "address"
+        }
+      ],
+      "name": "changeFeesAddress",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "newMaxNft", "type": "uint256" }
+      ],
+      "name": "changeMaxNft",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_newFees", "type": "uint256" }
+      ],
+      "name": "changeSwappingFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_swapId", "type": "uint256" }
+      ],
+      "name": "completeSwap",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dataOracle",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feesAddress",
+      "outputs": [
+        { "internalType": "address payable", "name": "", "type": "address" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllSwaps",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            {
+              "internalType": "address[]",
+              "name": "senderNftAddress",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "senderNFTId",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "senderPrice",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipientNftAddress",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "recipientNFTId",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "recipientPrice",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+            { "internalType": "bool", "name": "active", "type": "bool" },
+            { "internalType": "bool", "name": "swapComplete", "type": "bool" }
+          ],
+          "internalType": "struct NFTSwap.Swap[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getFees",
+      "outputs": [
+        { "internalType": "uint256", "name": "_price", "type": "uint256" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getLatestEthPrice",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_swapId", "type": "uint256" }
+      ],
+      "name": "getSingleSwap",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            {
+              "internalType": "address[]",
+              "name": "senderNftAddress",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "senderNFTId",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "senderPrice",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipientNftAddress",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "recipientNFTId",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "recipientPrice",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+            { "internalType": "bool", "name": "active", "type": "bool" },
+            { "internalType": "bool", "name": "swapComplete", "type": "bool" }
+          ],
+          "internalType": "struct NFTSwap.Swap",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_walletAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getSwapsByWalletAddress",
+      "outputs": [
+        {
+          "components": [
+            { "internalType": "address", "name": "sender", "type": "address" },
+            {
+              "internalType": "address[]",
+              "name": "senderNftAddress",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "senderNFTId",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "senderPrice",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "address[]",
+              "name": "recipientNftAddress",
+              "type": "address[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "recipientNFTId",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "recipientPrice",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startTime",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "endTime", "type": "uint256" },
+            { "internalType": "bool", "name": "active", "type": "bool" },
+            { "internalType": "bool", "name": "swapComplete", "type": "bool" }
+          ],
+          "internalType": "struct NFTSwap.Swap[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_senderNftAddress",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_senderPrice",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_senderNFTId",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_endTimeOfSwapping",
+          "type": "uint256"
+        }
+      ],
+      "name": "initiateSwap",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "", "type": "address" },
+        { "internalType": "address", "name": "", "type": "address" },
+        { "internalType": "uint256", "name": "", "type": "uint256" },
+        { "internalType": "bytes", "name": "", "type": "bytes" }
+      ],
+      "name": "onERC721Received",
+      "outputs": [{ "internalType": "bytes4", "name": "", "type": "bytes4" }],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_swapId", "type": "uint256" }
+      ],
+      "name": "rejectSwap",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "_swapId", "type": "uint256" },
+        {
+          "internalType": "address[]",
+          "name": "_recipientNftAddress",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_recipientNFTId",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_recipientPrice",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "setRecipientNFT",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "swapId",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "swappingFees",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "amount", "type": "uint256" }
+      ],
+      "name": "transferFees",
+      "outputs": [
+        { "internalType": "bool", "name": "_response", "type": "bool" }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "newOwner", "type": "address" }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withDrawAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}
