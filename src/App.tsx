@@ -23,9 +23,9 @@ function App() {
   const connectWallet = async () => {
 
     // const chainId = { mainnet: 137, testnet: 80001 }; // Polygon Mainnet
-    // const chainId = { mainnet: 1, testnet: 11155111 }; // Sepolia  
+    const chainId = { mainnet: 1, testnet: 11155111 }; // Sepolia  
 
-    const chainId = { mainnet: 1, testnet: 5 }; // Goerli 
+    // const chainId = { mainnet: 1, testnet: 5 }; // Goerli 
 
 
     if (window.ethereum.networkVersion !== chainId.testnet) {
